@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Backlog — Taller de Autos</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2430;
+    --muted: #5b6577;
+    --line: #d9dee6;
+    --accent: #1f4e8c;
+    --accent-soft: #e6eef8;
+    --alta: #b3261e;
+    --alta-bg: #fbe9e7;
+    --media: #8a5a00;
+    --media-bg: #fdf1d6;
+    --baja: #2e6b3a;
+    --baja-bg: #e3f2e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161d;
+      --surface: #1a2029;
+      --text: #e6eaf1;
+      --muted: #9aa5b8;
+      --line: #2b3441;
+      --accent: #7fb0ec;
+      --accent-soft: #1d2b3e;
+      --alta: #ff9a92;
+      --alta-bg: #3a1f1d;
+      --media: #f0c46a;
+      --media-bg: #3a2f14;
+      --baja: #8fd39e;
+      --baja-bg: #1b3022;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+  header.portada {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--accent);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    margin-bottom: 28px;
+  }
+  header.portada p.pre { margin: 0 0 6px; color: var(--muted); font-size: .9rem; }
+  header.portada h1 { margin: 0; font-size: 2.2rem; line-height: 1.15; }
+  header.portada .sub { margin: 6px 0 20px; color: var(--muted); font-size: 1.05rem; }
+  .meta { display: flex; flex-wrap: wrap; gap: 12px 40px; margin: 0; }
+  .meta div dt { font-size: .8rem; color: var(--muted); }
+  .meta div dd { margin: 0; font-weight: 600; }
+  section { margin-bottom: 36px; }
+  h2 {
+    font-size: 1.5rem;
+    margin: 0 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 1.15rem; margin: 22px 0 8px; color: var(--accent); }
+  p { margin: 0 0 12px; max-width: 75ch; }
+  ul, ol { margin: 0 0 12px; padding-left: 22px; max-width: 75ch; }
+  li { margin-bottom: 4px; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-bottom: 16px; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; }
+  th, td { text-align: left; padding: 10px 12px; vertical-align: top; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-size: .9rem; }
+  tr:last-child td { border-bottom: none; }
+  td.id { font-weight: 700; white-space: nowrap; }
+  td small { display: block; color: var(--muted); }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
+  .badge.alta { color: var(--alta); background: var(--alta-bg); }
+  .badge.media { color: var(--media); background: var(--media-bg); }
+  .badge.baja { color: var(--baja); background: var(--baja-bg); }
+  .fase-titulo { display: flex; align-items: baseline; gap: 10px; margin: 26px 0 10px; }
+  .fase-titulo h3 { margin: 0; }
+  .historia {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .historia h3 { margin: 0 0 6px; }
+  .historia p { margin-bottom: 6px; }
+  .historia strong { color: var(--text); }
+  .nota {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 10px 14px;
+    max-width: 75ch;
+  }
+  .fases-ruta { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .fases-ruta div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+  .fases-ruta h3 { margin: 0 0 6px; font-size: 1rem; }
+  .fases-ruta p { margin: 0; font-size: .95rem; }
+  footer { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 40px; }
+  @media print { body { background: #fff; } .wrap { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="portada">
+    <p class="pre">Documento de planificación del producto</p>
+    <h1>Product Backlog — Taller de Autos</h1>
+    <p class="sub">Sistema de gestión integral para taller mecánico</p>
+    <dl class="meta">
+      <div><dt>Versión</dt><dd>1.0</dd></div>
+      <div><dt>Estado</dt><dd>Propuesta para desarrollo</dd></div>
+      <div><dt>Fecha</dt><dd>10 de noviembre de 2026</dd></div>
+    </dl>
+  </header>
+
+  <section id="proposito">
+    <h2>Propósito</h2>
+    <p>Rediseñar desde cero una aplicación desarrollada con Flutter y Firebase para administrar clientes, vehículos, órdenes de servicio, trabajos, piezas instaladas, pagos, adeudos, fotografías y comprobantes. El desarrollo se realizará por fases, priorizando un producto mínimo viable que resuelva el control de cobros.</p>
+    <h3>Alcance del documento</h3>
+    <p>Este backlog es una propuesta de planificación funcional. Las prioridades y fases deberán validarse con el propietario del taller antes de iniciar el desarrollo. La solución se implementará con Flutter y Firebase.</p>
+  </section>
+
+  <section id="vision">
+    <h2>1. Visión y objetivos</h2>
+    <p>El sistema Taller de Autos centralizará la operación del taller y permitirá conocer, para cada orden, qué trabajo se realizó, qué piezas se instalaron, cuánto se cobró, cuánto se recibió y qué saldo queda pendiente.</p>
+    <h3>Objetivos del producto</h3>
+    <ul>
+      <li>Evitar confusiones en anticipos, abonos y saldos pendientes.</li>
+      <li>Documentar servicios, piezas y mano de obra por vehículo.</li>
+      <li>Generar tickets de recepción y comprobantes detallados de pago.</li>
+      <li>Conservar fotografías y notas de trabajos adicionales.</li>
+      <li>Consultar historial y reportes para mejorar la administración.</li>
+    </ul>
+    <h3>Usuarios y perfiles</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Perfil</th><th>Responsabilidad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Administrador</strong></td><td>Gestiona todo el taller, autoriza ajustes, revisa reportes y usuarios.</td></tr>
+          <tr><td><strong>Mecánico</strong></td><td>Consulta órdenes, registra diagnósticos, trabajos y evidencia fotográfica.</td></tr>
+          <tr><td><strong>Recepcionista / cajero</strong></td><td>Registra clientes, órdenes y pagos según permisos; genera comprobantes.</td></tr>
+          <tr><td><strong>Cliente</strong></td><td>Recibe comprobantes; su portal de consulta queda para una fase posterior.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="backlog">
+    <h2>2. Product Backlog priorizado</h2>
+    <p>Las historias se identifican con códigos HU-01 a HU-26. La fase 1 corresponde al MVP; las fases posteriores amplían documentos, administración y comunicación con clientes.</p>
+
+    <div class="fase-titulo"><h3>Fase 1 — MVP y control de cobros</h3></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Módulo / historia</th><th>Descripción / alcance</th><th>Prioridad</th></tr></thead>
+        <tbody>
+          <tr><td class="id">HU-01</td><td>Acceso<small>Inicio de sesión y roles</small></td><td>Autenticación segura y permisos para administrador, mecánico y cajero.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-02</td><td>Clientes<small>Administrar clientes</small></td><td>Registrar, editar, buscar y consultar clientes y sus datos de contacto.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-03</td><td>Vehículos<small>Administrar vehículos</small></td><td>Registrar marca, modelo, año, placas, VIN, kilometraje y propietario.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-04</td><td>Órdenes<small>Crear órdenes de servicio</small></td><td>Crear folios únicos, registrar fallas, diagnóstico, fechas, responsable y estado.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-05</td><td>Servicios<small>Agregar trabajos y mano de obra</small></td><td>Registrar múltiples trabajos con descripción, cantidad, precio y subtotal.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-06</td><td>Refacciones<small>Agregar piezas e ítems</small></td><td>Registrar piezas instaladas, cantidades, precios y observaciones.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-07</td><td>Pagos<small>Registrar anticipos y abonos</small></td><td>Guardar cada pago con fecha, método, importe, referencia y usuario.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-08</td><td>Adeudos<small>Calcular saldos automáticamente</small></td><td>Mostrar total, pagos acumulados y saldo pendiente por orden y cliente.</td><td><span class="badge alta">Alta</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fase-titulo"><h3>Fase 2 — Documentos, fotos y seguridad</h3></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Módulo / historia</th><th>Descripción / alcance</th><th>Prioridad</th></tr></thead>
+        <tbody>
+          <tr><td class="id">HU-09</td><td>Tickets<small>Generar ticket de orden</small></td><td>Emitir comprobante de recepción con datos del cliente, vehículo, falla y folio.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-10</td><td>Tickets<small>Generar comprobante de pago</small></td><td>PDF con trabajos realizados, piezas, mano de obra, total, abono y saldo restante.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-11</td><td>Fotografías<small>Evidencia fotográfica</small></td><td>Subir fotos antes, durante y después, con fecha, descripción y autor.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-12</td><td>Fotografías<small>Agregar trabajos adicionales</small></td><td>Documentar reparaciones imprevistas con nuevas fotos, notas, piezas y costos.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-13</td><td>Cotizaciones<small>Crear y autorizar presupuestos</small></td><td>Cotizar trabajos, registrar autorización y controlar cambios de precio.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-14</td><td>Órdenes<small>Gestionar estados</small></td><td>Recibido, diagnóstico, pendiente de autorización, reparación, terminado y entregado.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-15</td><td>Historial<small>Historial de cada vehículo</small></td><td>Consultar visitas, servicios, piezas, pagos, fotografías y documentos.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-20</td><td>Seguridad<small>Bitácora de movimientos</small></td><td>Registrar cambios de precios, pagos, cancelaciones y acciones sensibles.</td><td><span class="badge alta">Alta</span></td></tr>
+          <tr><td class="id">HU-21</td><td>Seguridad<small>Respaldos y recuperación</small></td><td>Respaldar base de datos, documentos e imágenes y comprobar restauración.</td><td><span class="badge alta">Alta</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fase-titulo"><h3>Fase 3 — Administración integral</h3></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Módulo / historia</th><th>Descripción / alcance</th><th>Prioridad</th></tr></thead>
+        <tbody>
+          <tr><td class="id">HU-16</td><td>Dashboard<small>Panel principal</small></td><td>Mostrar órdenes activas, cobros, adeudos, vehículos listos y acciones rápidas.</td><td><span class="badge media">Media</span></td></tr>
+          <tr><td class="id">HU-17</td><td>Inventario<small>Control de refacciones</small></td><td>Entradas, salidas, existencias, costos, precios y stock mínimo.</td><td><span class="badge media">Media</span></td></tr>
+          <tr><td class="id">HU-18</td><td>Reportes<small>Ingresos y corte de caja</small></td><td>Reportes diarios, mensuales, por método de pago y conciliación de cobros.</td><td><span class="badge media">Media</span></td></tr>
+          <tr><td class="id">HU-19</td><td>Reportes<small>Reporte de clientes deudores</small></td><td>Filtrar saldos pendientes, antigüedad y órdenes sin liquidar.</td><td><span class="badge media">Media</span></td></tr>
+          <tr><td class="id">HU-22</td><td>Documentos<small>Entrega del vehículo</small></td><td>Registrar fecha, persona que recibe, conformidad y saldo pendiente.</td><td><span class="badge media">Media</span></td></tr>
+          <tr><td class="id">HU-26</td><td>Configuración<small>Personalizar datos del taller</small></td><td>Nombre, logotipo, dirección, teléfono y formato de comprobantes.</td><td><span class="badge media">Media</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fase-titulo"><h3>Fase 4 — Funciones avanzadas</h3></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Módulo / historia</th><th>Descripción / alcance</th><th>Prioridad</th></tr></thead>
+        <tbody>
+          <tr><td class="id">HU-23</td><td>Notificaciones<small>Mensajes por WhatsApp</small></td><td>Compartir cotizaciones, avances, tickets y recordatorios.</td><td><span class="badge baja">Baja</span></td></tr>
+          <tr><td class="id">HU-24</td><td>Mantenimiento<small>Recordatorios de servicio</small></td><td>Programar avisos por fecha o kilometraje.</td><td><span class="badge baja">Baja</span></td></tr>
+          <tr><td class="id">HU-25</td><td>Clientes<small>Portal de consulta del cliente</small></td><td>Permitir consultar el estado y las evidencias autorizadas de su vehículo.</td><td><span class="badge baja">Baja</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="criticas">
+    <h2>3. Historias de usuario críticas y aceptación</h2>
+
+    <div class="historia">
+      <h3>HU-04 — Crear órdenes</h3>
+      <p>Como recepcionista quiero crear una orden con folio único y vehículo asociado para registrar cada visita.</p>
+      <p><strong>Criterios de aceptación:</strong> Al guardar, se genera un folio irrepetible; los datos obligatorios se validan; la orden queda asociada al cliente y vehículo.</p>
+    </div>
+
+    <div class="historia">
+      <h3>HU-07 / HU-08 — Abonos y adeudos</h3>
+      <p>Como cajero quiero registrar cada abono para conocer cuánto pagó el cliente y cuánto falta.</p>
+      <p><strong>Criterios de aceptación:</strong> Se guarda importe, fecha, método y usuario; el saldo se recalcula; no se aceptan pagos negativos ni mayores al saldo sin flujo autorizado.</p>
+    </div>
+
+    <div class="historia">
+      <h3>HU-10 — Comprobante de pago</h3>
+      <p>Como cajero quiero generar un ticket para entregar al cliente un resumen claro del servicio y su pago.</p>
+      <p><strong>Criterios de aceptación:</strong> El PDF muestra folio, cliente, vehículo, trabajos, piezas, mano de obra, total, pago actual, pagos acumulados, saldo y fecha.</p>
+    </div>
+
+    <div class="historia">
+      <h3>HU-11 / HU-12 — Evidencia y trabajos extra</h3>
+      <p>Como mecánico quiero adjuntar fotos y registrar hallazgos adicionales para documentar lo realizado.</p>
+      <p><strong>Criterios de aceptación:</strong> Cada foto queda asociada a una orden y etapa; las notas muestran autor y fecha; todo cargo adicional requiere autorización antes de ejecutarse.</p>
+    </div>
+
+    <div class="historia">
+      <h3>HU-13 — Cotización y autorización</h3>
+      <p>Como administrador quiero registrar la aprobación del cliente para evitar trabajos no autorizados.</p>
+      <p><strong>Criterios de aceptación:</strong> La cotización contiene conceptos y total; se registra fecha, medio y evidencia de autorización; los cambios generan nueva revisión.</p>
+    </div>
+
+    <div class="historia">
+      <h3>HU-20 — Auditoría</h3>
+      <p>Como administrador quiero consultar cambios sensibles para investigar diferencias en cobros.</p>
+      <p><strong>Criterios de aceptación:</strong> Los ajustes de importes y cancelaciones guardan usuario, fecha, acción, valor anterior y nuevo, sin borrar el registro original.</p>
+    </div>
+  </section>
+
+  <section id="reglas">
+    <h2>4. Reglas de negocio</h2>
+    <ol>
+      <li>Cada orden tendrá un folio único y podrá incluir varios trabajos, piezas y pagos.</li>
+      <li>Saldo pendiente = total autorizado de la orden − pagos válidos acumulados, considerando ajustes y devoluciones registrados.</li>
+      <li>Cada pago conservará fecha, importe, método, referencia y usuario responsable.</li>
+      <li>Los trabajos adicionales deberán registrarse con fotografías, notas, costo y autorización del cliente antes de ejecutarse.</li>
+      <li>Los tickets de pago mostrarán el detalle de servicios, piezas, mano de obra, pagos y saldo.</li>
+      <li>Los descuentos, cancelaciones y cambios sensibles deberán conservar trazabilidad.</li>
+      <li>La entrega con saldo pendiente requerirá autorización del administrador.</li>
+      <li>Las fotografías y datos personales solo estarán disponibles para perfiles autorizados.</li>
+    </ol>
+  </section>
+
+  <section id="ruta">
+    <h2>5. Ruta de implementación</h2>
+    <div class="fases-ruta">
+      <div><h3>Fase 1 — MVP</h3><p>Acceso, clientes, vehículos, órdenes, trabajos, piezas, abonos y cálculo de saldo.</p></div>
+      <div><h3>Fase 2 — Evidencias y documentos</h3><p>Tickets, fotos, trabajos extra, autorizaciones, estados, historial, auditoría y respaldos.</p></div>
+      <div><h3>Fase 3 — Gestión administrativa</h3><p>Dashboard, inventario, reportes, corte de caja, entrega y configuración.</p></div>
+      <div><h3>Fase 4 — Comunicación</h3><p>WhatsApp, recordatorios y portal de consulta para clientes.</p></div>
+    </div>
+  </section>
+
+  <section id="tecnologias">
+    <h2>6. Tecnologías del sistema</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Componente</th><th>Propuesta</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aplicación e interfaz</strong></td><td>Flutter (Dart), diseño adaptable a escritorio, tableta y móvil</td></tr>
+          <tr><td><strong>Autenticación</strong></td><td>Firebase Authentication y perfiles con permisos</td></tr>
+          <tr><td><strong>Base de datos</strong></td><td>Cloud Firestore para clientes, vehículos, órdenes, trabajos, pagos y saldos</td></tr>
+          <tr><td><strong>Fotografías y archivos</strong></td><td>Cloud Storage for Firebase con acceso controlado</td></tr>
+          <tr><td><strong>Operaciones seguras</strong></td><td>Cloud Functions para movimientos críticos y lógica de negocio</td></tr>
+          <tr><td><strong>Seguridad</strong></td><td>Firebase Security Rules y validaciones por rol</td></tr>
+          <tr><td><strong>Documentos</strong></td><td>Tickets y comprobantes PDF para descargar e imprimir</td></tr>
+          <tr><td><strong>Control de versiones</strong></td><td>Repositorio Git y pruebas por módulo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota"><strong>Nota:</strong> Flutter y Firebase son las tecnologías seleccionadas. La configuración de acceso, permisos, almacenamiento y copias de seguridad se establecerá durante el diseño técnico.</p>
+  </section>
+
+  <section id="dod">
+    <h2>7. Definición de terminado (DoD)</h2>
+    <ul>
+      <li>La funcionalidad cumple sus criterios de aceptación y permisos de usuario.</li>
+      <li>Los formularios validan entradas y muestran mensajes comprensibles.</li>
+      <li>Los cálculos financieros están cubiertos por pruebas, incluyendo pagos parciales y cancelaciones.</li>
+      <li>Las operaciones críticas quedan auditadas y no pierden información.</li>
+      <li>La interfaz es utilizable desde computadora y celular.</li>
+      <li>El código está documentado, versionado y probado antes de cerrar la historia.</li>
+    </ul>
+  </section>
+
+  <section id="pasos">
+    <h2>8. Próximos pasos del proyecto</h2>
+    <p>Definir el modelo de datos en Cloud Firestore, la estructura de la aplicación Flutter, los permisos, las reglas de seguridad, el almacenamiento de fotografías y el plan de pruebas del MVP antes de iniciar la implementación.</p>
+  </section>
+
+  <section id="cierre">
+    <h2>9. Cierre</h2>
+    <p>El Product Backlog de Taller de Autos reúne 26 historias de usuario distribuidas en cuatro fases. La prioridad inicial es resolver el registro de servicios y el control financiero del taller; posteriormente se integrarán documentos, evidencias, reportes y herramientas de comunicación.</p>
+  </section>
+
+  <footer>Taller de Autos · Product Backlog v1.0 · 10 de noviembre de 2026</footer>
+</div>
+</body>
+</html>
