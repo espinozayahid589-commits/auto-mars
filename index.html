@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 :root{--bg:#eef1f5;--s:#fff;--t:#16212e;--m:#64748b;--l:#e2e8f0;--navy:#0f2a3d;--y:#f2a900;--yt:#1a1300;--r:#c0362c;--g:#1f8a4c;--sh:0 1px 2px rgba(15,42,61,.06),0 8px 24px rgba(15,42,61,.07)}
 @media(prefers-color-scheme:dark){:root{--bg:#0b1117;--s:#141d27;--t:#e8edf3;--m:#8b9bb0;--l:#233041;--navy:#091620;--r:#ff8a80;--g:#5fd08c;--sh:0 1px 2px #0006,0 8px 24px #0004}}
@@ -32,12 +33,12 @@ main{padding:28px 32px 70px;max-width:1120px;width:100%}
 .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
 .head p{margin:2px 0 0;color:var(--m)}
 .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.btn,button.btn{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--yt);border:0;border-radius:8px;padding:9px 16px;font:600 .95rem "IBM Plex Sans",sans-serif;cursor:pointer;box-shadow:0 1px 0 #0002}
+.btn,button.btn{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--yt);border:0;border-radius:8px;padding:9px 16px;font:600 .95rem "IBM Plex Sans",sans-serif;cursor:pointer;box-shadow:0 1px 0 #0002;text-decoration:none}
 .btn:hover{filter:brightness(1.06)}
 .btn.sec{background:var(--s);color:var(--t);border:1px solid var(--l);box-shadow:none}
 .btn.sm{padding:5px 11px;font-size:.85rem}
 .btn.red{background:transparent;color:var(--r);border:1px solid var(--l);box-shadow:none}
-button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--y);outline-offset:2px}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--y);outline-offset:2px}
 input,select{width:100%;padding:10px 12px;border:1px solid var(--l);border-radius:8px;background:var(--bg);color:var(--t);font:inherit;margin-top:4px}
 input:focus,select:focus{border-color:var(--y)}
 label{display:block;margin-bottom:12px;font-size:.88rem;color:var(--m);font-weight:500}
@@ -49,7 +50,7 @@ label{display:block;margin-bottom:12px;font-size:.88rem;color:var(--m);font-weig
 dialog{width:min(440px,92vw);padding:24px}
 dialog h3{margin:0 0 14px;font-size:1.5rem}
 dialog::backdrop{background:#0a121bb3;backdrop-filter:blur(2px)}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;align-items:center}
 .tw{overflow-x:auto;background:var(--s);border:1px solid var(--l);border-radius:14px;box-shadow:var(--sh);margin-bottom:12px}
 table{border-collapse:collapse;width:100%;min-width:560px}
 th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--l)}
@@ -73,7 +74,7 @@ s{color:var(--m)}
 .grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
 .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 20px}
 .info small{display:block;color:var(--m);font-size:.82rem}
-.info div{min-width:0}
+.info div{min-width:0;overflow-wrap:anywhere}
 .big{font:600 2.4rem/1 "Barlow Condensed",sans-serif}
 .sum p{display:flex;justify-content:space-between;margin:6px 0}
 .pg{height:8px;border-radius:99px;background:var(--l);overflow:hidden;margin:14px 0 4px}
@@ -92,6 +93,19 @@ s{color:var(--m)}
 .ph span{display:block;padding:7px 9px;font-size:.82rem}
 .empty{text-align:center;padding:44px 16px;color:var(--m)}
 .empty .ic{width:38px;height:38px;color:var(--y);margin-bottom:8px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.col h3{margin-top:0}
+.job{display:grid;gap:10px;margin-bottom:12px}
+.jt{font:600 1.35rem/1.15 "Barlow Condensed",sans-serif}
+.jh{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.tk{display:flex;gap:8px;align-items:center;font-size:.9rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+.t0{--c:#94a3b8}.t1{--c:#f2a900}.t2{--c:#1f8a4c}
+.strip{display:flex;gap:6px}
+.strip img{width:60px;height:46px;object-fit:cover;border-radius:6px}
+.tk2{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--l);flex-wrap:wrap}
+.chip{border:0;border-radius:999px;padding:3px 12px;font:600 .8rem "IBM Plex Sans",sans-serif;color:var(--c);background:color-mix(in srgb,var(--c) 16%,transparent);cursor:pointer;min-width:96px}
+.chip:disabled{cursor:default}
 .auth{display:grid;grid-template-columns:1.1fr 1fr;min-height:100vh}
 .hero{background:radial-gradient(900px 500px at 10% 0,#1d4a6b 0,var(--navy) 60%);color:#dbe6f0;padding:56px;display:flex;flex-direction:column;justify-content:center;gap:16px}
 .hero h1{color:#fff;font-size:3.4rem}
@@ -103,6 +117,7 @@ s{color:var(--m)}
 .formside .card{width:min(380px,100%)}
 .formside h2{margin-bottom:14px;font-size:1.9rem}
 .hint{font-size:.82rem;color:var(--m);margin:14px 0 0}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 20px;border-radius:999px;box-shadow:var(--sh);z-index:50;display:none}
 #tk{display:none}
 @media(max-width:860px){
  .shell{display:block}
@@ -111,7 +126,7 @@ s{color:var(--m)}
  .brand{padding:0 8px}.who{border:0;margin:0;padding:0}
  aside button{width:auto;white-space:nowrap;padding:8px 12px}
  main{padding:20px 14px 60px}
- .grid2{grid-template-columns:1fr}
+ .grid2,.board{grid-template-columns:1fr}
  .auth{grid-template-columns:1fr}.hero{padding:36px 24px}.hero h1{font-size:2.6rem}
 }
 @media print{body>*:not(#tk){display:none!important}#tk{display:block;color:#000;background:#fff;padding:12px;font:13px/1.5 "IBM Plex Sans",Arial,sans-serif}#tk table{min-width:0;width:100%;border-collapse:collapse}#tk th,#tk td{padding:4px 6px;border-bottom:1px solid #bbb;text-align:left}}
@@ -124,11 +139,13 @@ s{color:var(--m)}
 <script>
 let db;try{db=JSON.parse(localStorage.getItem('taller'))}catch(e){}
 db=db||{users:[{user:'admin',pw:'admin123',rol:'admin'},{user:'cajero',pw:'caja123',rol:'cajero'},{user:'mecanico',pw:'meca123',rol:'mecanico'}],clients:[],vehicles:[],orders:[],audit:[],seq:0};
-function norm(){db.cfg=db.cfg||{n:'Taller de Autos',a:'',t:'',l:'',f:'Gracias por su preferencia'};db.orders.forEach(o=>{o.disc=o.disc||0;o.fotos=o.fotos||[]});document.title=db.cfg.n}
+function norm(){db.cfg=db.cfg||{n:'Taller de Autos',a:'',t:'',l:'',f:'Gracias por su preferencia'};db.orders.forEach(o=>{o.disc=o.disc||0;o.fotos=o.fotos||[];o.tareas=o.tareas||[]});document.title=db.cfg.n}
 norm();
 let me=null,view='panel',openId=null,openV=null,q='';
+let gt=null,gx=0;
 const rep={k:'hoy',d:''};
-const save=()=>{try{localStorage.setItem('taller',JSON.stringify(db));return true}catch(e){alert('No hay espacio en este navegador. Descarga un respaldo y reduce el número de fotos.');return false}};
+const TS={p:'Por hacer',e:'En proceso',h:'Hecho'};
+const save=()=>{try{localStorage.setItem('taller',JSON.stringify(db));return true}catch(e){alert('No hay espacio en este navegador. Descarga un respaldo, conecta Google Drive para las fotos o borra fotos antiguas.');return false}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=n=>'$'+(n||0).toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
 const fd=s=>new Date(s).toLocaleString('es-MX',{dateStyle:'short',timeStyle:'short'});
@@ -152,6 +169,7 @@ const go=v=>{view=v;openId=null;openV=null;q='';render()};
 const IC={
  gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
  panel:'<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>',
+ board:'<rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="13" rx="1"/>',
  orders:'<path d="M9 4h6v3H9z"/><path d="M7 5.5H5v15h14v-15h-2"/><path d="M9 12h6M9 16h6"/>',
  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><path d="M16 4.7a3.5 3.5 0 010 6.6M18 14.2c2 .8 3.5 2.7 3.5 5.8"/>',
  car:'<path d="M3 17v-5l2-5h14l2 5v5"/><path d="M3 17h18M3 12h18"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/>',
@@ -174,7 +192,9 @@ const IC={
  cam:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
  percent:'<path d="M18 6L6 18"/><circle cx="7.5" cy="7.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/>',
  x:'<path d="M6 6l12 12M18 6L6 18"/>',
- clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>'
+ clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>',
+ cloud:'<path d="M7 18a4 4 0 010-8 5.5 5.5 0 0110.6 1.2A3.4 3.4 0 0117 18z"/>',
+ edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>'
 };
 const ic=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg>`;
 const bd=e=>`<span class="bd e${e=='Cancelada'?6:ES.indexOf(e)}">${e}</span>`;
@@ -185,8 +205,51 @@ const head=(t,sub,acts)=>`<div class="head"><div><h1>${t}</h1>${sub?`<p>${sub}</
 const addBtn=(fn,t)=>`<button class="btn" onclick="${fn}">${ic('plus')}${t}</button>`;
 const sbox=(fn,ph)=>`<div class="search">${ic('search')}<input placeholder="${ph}" oninput="q=this.value;lst.innerHTML=${fn}()"></div>`;
 const stat=(i,t,v)=>`<div class="card stat"><i>${ic(i)}</i><div><span>${t}</span><b>${v}</b></div></div>`;
+function toast(t,ms){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';document.body.appendChild(e)}e.textContent=t;e.style.display=t?'block':'none';if(t&&ms)setTimeout(()=>{if(e.textContent==t)e.style.display='none'},ms)}
 
 function img(file,max,type,qu){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,max/Math.max(i.width,i.height));const c=document.createElement('canvas');c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);ok(c.toDataURL(type,qu))};i.onerror=no;i.src=r.result};r.onerror=no;r.readAsDataURL(file)})}
+
+/* ---------- Google Drive ---------- */
+const gon=()=>gt&&Date.now()<gx;
+function gconn(){
+  if(!db.cfg.cid)return alert('Primero escribe tu Client ID de Google en Configuración.');
+  if(location.protocol=='file:')return alert('Google no permite iniciar sesión desde un archivo abierto con doble clic. Abre la página con Live Server (http://127.0.0.1:5500) y registra esa dirección en tu Client ID.');
+  if(!window.google||!google.accounts||!google.accounts.oauth2)return alert('No se pudo cargar Google. Revisa tu conexión a internet.');
+  google.accounts.oauth2.initTokenClient({
+    client_id:db.cfg.cid,scope:'https://www.googleapis.com/auth/drive.file',
+    callback:r=>{if(r.error)return alert('No se pudo conectar con Google: '+r.error);gt=r.access_token;gx=Date.now()+(r.expires_in-60)*1000;toast('Google Drive conectado',2500);render()},
+    error_callback:()=>alert('No se completó la conexión con Google.')
+  }).requestAccessToken();
+}
+async function gapi(url,opt={}){
+  if(!gon())throw new Error('auth');
+  const r=await fetch(url,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+gt}});
+  if(r.status==401){gt=null;throw new Error('auth')}
+  if(!r.ok&&!(opt.method=='DELETE'&&r.status==404))throw new Error('http '+r.status);
+  return r;
+}
+async function gfolder(name,parent){
+  name=name.replace(/['\\]/g,'');
+  const qq=`name='${name}' and mimeType='application/vnd.google-apps.folder' and trashed=false${parent?` and '${parent}' in parents`:''}`;
+  const j=await(await gapi('https://www.googleapis.com/drive/v3/files?fields=files(id)&q='+encodeURIComponent(qq))).json();
+  if(j.files&&j.files.length)return j.files[0].id;
+  const c=await(await gapi('https://www.googleapis.com/drive/v3/files?fields=id',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,mimeType:'application/vnd.google-apps.folder',parents:parent?[parent]:undefined})})).json();
+  return c.id;
+}
+async function ofolder(o){
+  if(o.df)return o.df;
+  const root=db.cfg.df||(db.cfg.df=await gfolder('Taller de Autos'));
+  const v=Vh(o.vid);
+  o.df=await gfolder(`${o.folio} ${v.m||''} ${v.mo||''} ${v.pl||''}`.trim(),root);
+  save();return o.df;
+}
+async function gup(blob,name,parent){
+  const f=new FormData();
+  f.append('metadata',new Blob([JSON.stringify({name,parents:[parent]})],{type:'application/json'}));
+  f.append('file',blob);
+  return (await gapi('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,webViewLink',{method:'POST',body:f})).json();
+}
+async function gdel(id){if(!gon())return false;try{await gapi('https://www.googleapis.com/drive/v3/files/'+id,{method:'DELETE'});return true}catch(e){return false}}
 
 function form(title,fields,cb){
   dlg.style.width='';
@@ -206,10 +269,10 @@ function login(e){
 function render(){
   const app=document.getElementById('app');
   if(!me){
-    app.innerHTML=`<div class="auth"><section class="hero">${mark()}<h1>${esc(db.cfg.n)}</h1><p>Órdenes, cobros y saldos de tu taller en un solo lugar.</p><ul><li>${ic('check')}Cada orden con su folio, trabajos y piezas</li><li>${ic('check')}Abonos y saldo pendiente siempre al día</li><li>${ic('check')}Comprobantes listos para imprimir o enviar por WhatsApp</li></ul></section><section class="formside"><form class="card" onsubmit="login(event)"><h2>Iniciar sesión</h2><label>Usuario<input name="u" required autofocus></label><label>Contraseña<input name="p" type="password" required></label><button class="btn" style="width:100%;justify-content:center">Entrar</button><p class="hint">Prueba: <b>admin</b> / admin123 · <b>cajero</b> / caja123 · <b>mecanico</b> / meca123</p></form></section></div>`;
+    app.innerHTML=`<div class="auth"><section class="hero">${mark()}<h1>${esc(db.cfg.n)}</h1><p>Órdenes, cobros y saldos de tu taller en un solo lugar.</p><ul><li>${ic('check')}Tablero con el avance de cada vehículo</li><li>${ic('check')}Fotos de avance guardadas en Google Drive</li><li>${ic('check')}Abonos y saldo pendiente siempre al día</li></ul></section><section class="formside"><form class="card" onsubmit="login(event)"><h2>Iniciar sesión</h2><label>Usuario<input name="u" required autofocus></label><label>Contraseña<input name="p" type="password" required></label><button class="btn" style="width:100%;justify-content:center">Entrar</button><p class="hint">Prueba: <b>admin</b> / admin123 · <b>cajero</b> / caja123 · <b>mecanico</b> / meca123</p></form></section></div>`;
     return;
   }
-  const tabs=[['panel','Panel','panel'],['ordenes','Órdenes','orders']];
+  const tabs=[['panel','Panel','panel'],['tablero','Tablero','board'],['ordenes','Órdenes','orders']];
   if(can('c'))tabs.push(['clientes','Clientes','users'],['vehiculos','Vehículos','car']);
   if(can('p'))tabs.push(['reportes','Reportes','chart']);
   if(can('a'))tabs.push(['bitacora','Bitácora','log'],['usuarios','Usuarios','shield'],['config','Configuración','gear']);
@@ -224,6 +287,11 @@ const V={
     `<div class="stats">${stat('orders','Órdenes activas',db.orders.filter(o=>live(o)&&o.estado!='Entregado').length)}${stat('flag','Listos para entregar',db.orders.filter(o=>o.estado=='Terminado').length)}${can('p')?stat('cash','Cobrado hoy',$(hoy))+stat('wallet','Saldo pendiente',$(db.orders.reduce((s,o)=>s+Math.max(sal(o),0),0))):''}</div>
     <h3>Órdenes recientes</h3>${rec.length?rows(rec):empty('Aún no hay órdenes registradas.','orders',can('o')?addBtn('nOrd()','Crear la primera orden'):'')}`;
   },
+  tablero(){
+    const col=(t,sts)=>{const r=db.orders.filter(o=>sts.includes(o.estado));return `<div class="col"><h3>${t} <span class="m">${r.length}</span></h3>${r.length?r.map(card).join(''):'<p class="m">Sin vehículos.</p>'}</div>`};
+    return head('Tablero del taller','Vehículos en el taller y su avance',can('o')?addBtn('nOrd()','Nueva orden'):'')+
+    `<div class="board">${col('Por atender',['Recibido','Diagnóstico','Pendiente de autorización'])}${col('En reparación',['Reparación'])}${col('Listos para entregar',['Terminado'])}</div><p class="m">Cuando un vehículo se entrega sale del tablero y queda en el historial.</p>`;
+  },
   ordenes(){return head('Órdenes','Servicios recibidos, en proceso y entregados',can('o')?addBtn('nOrd()','Nueva orden'):'')+`<div class="bar">${sbox('otbl','Buscar por folio, cliente, placas o estado')}</div><div id="lst">${otbl()}</div>`},
   clientes(){return head('Clientes','Datos de contacto y saldos',addBtn('nCli()','Nuevo cliente'))+`<div class="bar">${sbox('ctbl','Buscar por nombre o teléfono')}</div><div id="lst">${ctbl()}</div>`},
   vehiculos(){return head('Vehículos','Unidades registradas por propietario',addBtn('nVeh()','Nuevo vehículo'))+`<div class="bar">${sbox('vtbl','Buscar por placas, marca o propietario')}</div><div id="lst">${vtbl()}</div>`},
@@ -232,12 +300,21 @@ const V={
   usuarios(){return head('Usuarios','Accesos y roles del sistema',addBtn('nUser()','Nuevo usuario'))+`<div class="tw"><table><tr><th>Usuario</th><th>Rol</th><th>Estado</th><th></th></tr>${db.users.map(u=>`<tr><td><b>${esc(u.user)}</b></td><td>${u.rol}</td><td>${u.on===false?'<span class="neg">Desactivado</span>':'<span class="ok">Activo</span>'}</td><td><button class="btn sec sm" onclick="cpw('${u.user}')">Cambiar contraseña</button> ${u.user==me.user?'':`<button class="btn sec sm" onclick="togU('${u.user}')">${u.on===false?'Activar':'Desactivar'}</button>`}</td></tr>`).join('')}</table></div>`},
   config(){
     const c=db.cfg,v=t=>t?esc(t):'<span class="m">—</span>';
-    return head('Configuración','Datos que aparecen en tickets y comprobantes',`<button class="btn" onclick="editCfg()">Editar datos</button>`)+`<div class="card info"><div><small>Nombre del taller</small><b>${esc(c.n)}</b></div><div><small>Dirección</small>${v(c.a)}</div><div><small>Teléfono</small>${v(c.t)}</div><div><small>Mensaje al pie del ticket</small>${v(c.f)}</div><div><small>Logotipo</small>${c.l?`<img src="${c.l}" alt="Logotipo" style="max-height:70px">`:'<span class="m">Sin logotipo</span>'}</div></div>`;
+    return head('Configuración','Datos del taller y conexión con Google Drive',`<button class="btn" onclick="editCfg()">Editar datos</button>`)+`<div class="card info"><div><small>Nombre del taller</small><b>${esc(c.n)}</b></div><div><small>Dirección</small>${v(c.a)}</div><div><small>Teléfono</small>${v(c.t)}</div><div><small>Mensaje al pie del ticket</small>${v(c.f)}</div><div><small>Logotipo</small>${c.l?`<img src="${c.l}" alt="Logotipo" style="max-height:70px">`:'<span class="m">Sin logotipo</span>'}</div><div><small>Google Drive</small>${c.cid?(gon()?'<span class="ok">Conectado</span>':'Client ID guardado · sin conectar'):'<span class="m">Sin configurar</span>'}</div><div><small>Dirección de esta página (regístrala en Google Cloud)</small><b>${esc(location.origin)}</b></div></div>`;
   }
 };
 
+function card(o){
+  const v=Vh(o.vid),c=C(o.cid),t=o.tareas,h=t.filter(x=>x.s=='h').length,pct=t.length?h/t.length*100:0;
+  return `<div class="card job"><div class="jh"><div><div class="jt">${esc(v.m)} ${esc(v.mo)} ${esc(v.a)}</div><span class="m">${esc(v.pl)} · ${esc(c.n)}</span></div>${bd(o.estado)}</div>
+  <div><small class="m">Falla reportada</small><br>${esc(o.falla)}</div>
+  ${t.length?`<div>${t.filter(x=>x.s!='h').slice(0,3).map(x=>`<div class="tk"><span class="dot t${'peh'.indexOf(x.s)}"></span>${esc(x.t)}</div>`).join('')||'<span class="ok">Todas las tareas hechas</span>'}</div><div><div class="pg" style="margin:0"><div style="width:${pct}%"></div></div><small class="m">${h} de ${t.length} tareas hechas</small></div>`:'<span class="m">Sin tareas registradas</span>'}
+  ${o.fotos.length?`<div class="strip">${o.fotos.slice(-3).map(f=>`<img src="${f.s}" alt="${esc(f.e)}">`).join('')}</div>`:''}
+  <div class="row"><button class="btn sm" onclick="openId='${o.id}';render()">Abrir</button>${can('c')?`<button class="btn sec sm" onclick="nVeh('${v.id}')">${ic('edit')}Editar vehículo</button>`:''}</div></div>`;
+}
+
 function rows(r){
-  return `<div class="tw"><table><tr><th>Folio</th><th>Cliente</th><th>Vehículo</th><th>Estado</th>${can('p')?'<th>Total</th><th>Saldo</th>':''}<th></th></tr>${r.map(o=>`<tr><td class="folio">${o.folio}</td><td>${esc(C(o.cid).n)}</td><td>${esc(Vh(o.vid).m)} <span class="m">${esc(Vh(o.vid).pl)}</span></td><td>${bd(o.estado)}</td>${can('p')?`<td class="num">${$(tot(o))}</td><td class="num ${sal(o)>0?'neg':'ok'}">${$(sal(o))}</td>`:''}<td><button class="btn sec sm" onclick="openId='${o.id}';render()">Ver</button></td></tr>`).join('')}</table></div>`;
+  return `<div class="tw"><table><tr><th>Folio</th><th>Cliente</th><th>Vehículo</th><th>Estado</th>${can('p')?'<th>Total</th><th>Saldo</th>':''}<th></th></tr>${r.map(o=>`<tr><td class="folio">${o.folio}</td><td>${esc(C(o.cid).n)}</td><td>${esc(Vh(o.vid).m)} ${esc(Vh(o.vid).mo)} <span class="m">${esc(Vh(o.vid).pl)}</span></td><td>${bd(o.estado)}</td>${can('p')?`<td class="num">${$(tot(o))}</td><td class="num ${sal(o)>0?'neg':'ok'}">${$(sal(o))}</td>`:''}<td><button class="btn sec sm" onclick="openId='${o.id}';render()">Ver</button></td></tr>`).join('')}</table></div>`;
 }
 function otbl(){
   const r=db.orders.filter(o=>has(o.folio+C(o.cid).n+Vh(o.vid).pl+o.estado)).reverse();
@@ -268,8 +345,14 @@ function nOrd(){
   if(!db.vehicles.length)return alert('Primero registra un cliente y su vehículo.');
   form('Nueva orden',[{n:'v',l:'Vehículo',o:db.vehicles.map(v=>[v.id,`${v.pl} · ${v.m} ${v.mo} · ${C(v.cid).n}`])},{n:'f',l:'Falla reportada'},{n:'r',l:'Responsable',v:me.user}],r=>{
     const v=Vh(r.v);
-    const o={id:uid(),folio:'OS-'+String(++db.seq).padStart(5,'0'),cid:v.cid,vid:v.id,falla:r.f,diag:'',estado:'Recibido',resp:r.r,fecha:new Date().toISOString(),jobs:[],parts:[],pays:[],disc:0,fotos:[]};
+    const o={id:uid(),folio:'OS-'+String(++db.seq).padStart(5,'0'),cid:v.cid,vid:v.id,falla:r.f,diag:'',estado:'Recibido',resp:r.r,fecha:new Date().toISOString(),jobs:[],parts:[],pays:[],disc:0,fotos:[],tareas:[]};
     db.orders.push(o);log('Orden creada',o.folio);openId=o.id;render();
+  });
+}
+function editOrd(){
+  const o=O();
+  form('Editar orden',[{n:'f',l:'Falla reportada',v:o.falla},{n:'r',l:'Responsable',v:o.resp}],r=>{
+    log('Orden editada',`${o.folio}: falla «${o.falla}» → «${r.f}»`);o.falla=r.f;o.resp=r.r;save();render();
   });
 }
 
@@ -285,10 +368,15 @@ function hist(){
 function detalle(){
   const o=O(),c=C(o.cid),v=Vh(o.vid),idx=ES.indexOf(o.estado),lv=live(o),ed=can('t')&&lv;
   const pct=tot(o)>0?Math.min(100,pd(o)/tot(o)*100):0;
+  const th=o.tareas.filter(x=>x.s=='h').length,tp=o.tareas.length?th/o.tareas.length*100:0;
+  const todoOk=ed&&o.tareas.length&&th==o.tareas.length&&['Recibido','Diagnóstico','Pendiente de autorización','Reparación'].includes(o.estado);
+  const tareas=`<h3>Avance del trabajo</h3><div class="card"><div class="pg" style="margin-top:0"><div style="width:${tp}%"></div></div><p class="m">${th} de ${o.tareas.length} tareas hechas</p>${o.tareas.map((t,n)=>`<div class="tk2"><button class="chip t${'peh'.indexOf(t.s)}" ${ed?`onclick="cycT(${n})" title="Clic para cambiar el estado"`:'disabled'}>${TS[t.s]}</button><span style="flex:1;min-width:140px">${t.s=='h'?`<s>${esc(t.t)}</s>`:esc(t.t)}</span>${ed?`<button class="btn sec sm" onclick="editT(${n})">Editar</button><button class="btn red sm" onclick="delT(${n})">${ic('x')}</button>`:''}</div>`).join('')||'<p class="m">Aún no hay tareas. Agrega lo que se está haciendo y lo que se va a hacer.</p>'}${todoOk?`<p class="ok">Todas las tareas están hechas. <button class="btn sm" onclick="setSt('Terminado')">Marcar como Terminado</button></p>`:''}${ed?`<p><button class="btn sec sm" onclick="addT()">${ic('plus')}Agregar tarea</button></p>`:''}</div>`;
   const items=(k,t)=>`<h3>${t}</h3><div class="tw"><table><tr><th>Descripción</th><th>Cant.</th><th>Precio</th><th>Subtotal</th><th>Autorización</th></tr>${o[k].map((i,n)=>`<tr><td>${esc(i.d)}</td><td>${i.q}</td><td class="num">${$(i.p)}</td><td class="num">${$(i.q*i.p)}</td><td>${i.aut?'<span class="ok">Autorizado</span>':`<span class="pend">Pendiente</span> ${can('o')&&lv?`<button class="btn sec sm" onclick="auth('${k}',${n})">Autorizar</button>`:''}`}</td></tr>`).join('')||'<tr><td colspan="5" class="m">Sin registros</td></tr>'}</table></div>${ed?`<button class="btn sec sm" onclick="addIt('${k}')">${ic('plus')}Agregar</button>`:''}`;
   const pays=can('p')?`<h3>Pagos</h3><div class="tw"><table><tr><th>Fecha</th><th>Método</th><th>Importe</th><th>Referencia</th><th>Usuario</th><th></th></tr>${o.pays.map((p,n)=>`<tr><td class="num">${fd(p.f)}</td><td>${p.t}</td><td class="num">${p.void?`<s>${$(p.m)}</s> <span class="neg">Cancelado</span>`:$(p.m)}</td><td>${esc(p.r)}</td><td>${esc(p.u)}</td><td>${p.void?'':`<button class="btn sec sm" onclick="tk('p',${n})">Ticket</button> ${can('a')?`<button class="btn red sm" onclick="vp(${n})">Cancelar</button>`:''}`}</td></tr>`).join('')||'<tr><td colspan="6" class="m">Sin pagos</td></tr>'}</table></div>${lv?`<button class="btn sm" onclick="addPay()">${ic('plus')}Registrar pago</button>`:''}`:'';
-  const fotos=`<h3>Fotografías</h3>${o.fotos.length?`<div class="ph">${o.fotos.map((f,n)=>`<button onclick="verFoto(${n})"><img src="${f.s}" alt="${esc(f.e)}"><span><b>${f.e}</b><br>${esc(f.d)}</span></button>`).join('')}</div>`:'<p class="m">Sin fotografías todavía.</p>'}${ed?`<button class="btn sec sm" onclick="addFoto()">${ic('cam')}Agregar foto</button> <span class="m">Se guardan comprimidas en este navegador.</span>`:''}`;
+  const gs=db.cfg.cid?(gon()?`<span class="ok">${ic('cloud')} Google Drive conectado</span>`:`<button class="btn sec sm" onclick="gconn()">${ic('cloud')}Conectar Google Drive</button>`):'<span class="m">Drive sin configurar (Configuración)</span>';
+  const fotos=`<h3>Fotografías de avance</h3>${o.fotos.length?`<div class="ph">${o.fotos.map((f,n)=>`<button onclick="verFoto(${n})"><img src="${f.s}" alt="${esc(f.e)}"><span><b>${f.e}</b> ${esc(f.d)}${f.i?'<br><span class="m">En Google Drive</span>':''}</span></button>`).join('')}</div>`:'<p class="m">Sin fotografías todavía.</p>'}<div class="row">${ed?`<button class="btn sec sm" onclick="addFoto()">${ic('cam')}Agregar foto</button>`:''}${gs}${can('a')&&o.fotos.length?`<button class="btn red sm" onclick="limpiaFotos()">${ic('x')}Borrar todas las fotos</button>`:''}</div>`;
   return `<div class="head"><div><button class="btn sec sm" onclick="go('ordenes')">${ic('back')}Órdenes</button></div><div class="acts">
+  ${ed?`<button class="btn sec sm" onclick="editOrd()">${ic('edit')}Editar orden</button>`:''}
   <button class="btn sec sm" onclick="openV='${v.id}';openId=null;render()">${ic('clock')}Historial</button>
   ${can('o')&&lv?`<button class="btn sec sm" onclick="waOrd()">${ic('chat')}WhatsApp</button>`:''}
   <button class="btn sec sm" onclick="tk('r')">${ic('print')}Recepción</button>
@@ -298,7 +386,7 @@ function detalle(){
   <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap"><h1>${o.folio}</h1>${bd(o.estado)}</div>
   <div class="${can('p')?'grid2':''}"><div class="card"><div class="info">
    <div><small>Cliente</small><b>${esc(c.n)}</b>${can('c')?`<br><span class="m">${esc(c.t)}</span>`:''}</div>
-   <div><small>Vehículo</small><b>${esc(v.m)} ${esc(v.mo)} ${esc(v.a)}</b><br><span class="m">Placas ${esc(v.pl)} · ${esc(v.km)} km</span></div>
+   <div><small>Vehículo</small><b>${esc(v.m)} ${esc(v.mo)} ${esc(v.a)}</b> ${can('c')?`<button class="btn sec sm" onclick="nVeh('${v.id}')">${ic('edit')}</button>`:''}<br><span class="m">Placas ${esc(v.pl)} · ${esc(v.km)} km</span></div>
    <div><small>Falla reportada</small>${esc(o.falla)}</div>
    <div><small>Diagnóstico</small>${esc(o.diag)||'<span class="m">Sin diagnóstico</span>'} ${ed?`<button class="btn sec sm" onclick="diag()">Editar</button>`:''}</div>
    <div><small>Responsable</small>${esc(o.resp)}</div>
@@ -306,7 +394,8 @@ function detalle(){
    ${o.ent?`<div><small>Entrega</small>${esc(o.ent.q)} · ${o.ent.c}<br><span class="m">${fd(o.ent.f)}</span></div>`:''}</div></div>
   ${can('p')?`<div class="card sum"><span class="m">Saldo pendiente</span><div class="big ${sal(o)>0?'neg':'ok'}">${$(sal(o))}</div><div class="pg"><div style="width:${pct}%"></div></div><p><span class="m">Subtotal</span><b class="num">${$(sub(o))}</b></p>${o.disc?`<p><span class="m">Descuento</span><b class="num">-${$(o.disc)}</b></p>`:''}<p><span class="m">Total autorizado</span><b class="num">${$(tot(o))}</b></p><p><span class="m">Pagado</span><b class="num">${$(pd(o))}</b></p>${can('a')&&lv?`<button class="btn sec sm" onclick="descto()">${ic('percent')}Descuento</button>`:''}</div>`:''}</div>
   ${lv?`<div class="card steps">${ES.map((e,i)=>`<button class="st ${i<idx?'done':''} ${i==idx?'cur':''}" onclick="setSt('${e}')"><i>${i<idx?ic('check'):i+1}</i><span>${e}</span></button>`).join('')}</div>`:`<div class="card" style="margin-top:16px"><b class="neg">Orden cancelada</b><br>${esc(o.canc?.r)} <span class="m">· ${esc(o.canc?.u)} · ${o.canc?fd(o.canc.f):''}</span></div>`}
-  ${items('jobs','Trabajos y mano de obra')}${items('parts','Piezas')}${fotos}${pays}`;
+  ${o.estado=='Entregado'?'<p class="m">Vehículo entregado: ya no aparece en el tablero. Puedes borrar las fotos de avance si ya no las necesitas.</p>':''}
+  ${tareas}${items('jobs','Trabajos y mano de obra')}${items('parts','Piezas')}${fotos}${pays}`;
 }
 
 function diag(){const o=O();form('Diagnóstico',[{n:'d',l:'Diagnóstico',v:o.diag}],r=>{o.diag=r.d;log('Diagnóstico actualizado',o.folio);render()})}
@@ -319,24 +408,59 @@ function addIt(k){
 }
 function auth(k,n){const o=O(),i=o[k][n];i.aut=true;log('Cargo autorizado',`${o.folio}: ${i.d} (${$(i.q*i.p)})`);render()}
 
+const EST=[['p','Por hacer'],['e','En proceso'],['h','Hecho']];
+function addT(){const o=O();form('Nueva tarea',[{n:'t',l:'¿Qué se está haciendo o se va a hacer?'},{n:'s',l:'Estado',o:EST}],r=>{o.tareas.push({id:uid(),t:r.t,s:r.s,u:me.user});save();render()})}
+function editT(n){const o=O(),t=o.tareas[n];form('Editar tarea',[{n:'t',l:'Descripción',v:t.t},{n:'s',l:'Estado',o:EST}],r=>{t.t=r.t;t.s=r.s;save();render()});dlg.querySelector('[name=s]').value=t.s}
+function cycT(n){const t=O().tareas[n];t.s={p:'e',e:'h',h:'p'}[t.s];save();render()}
+function delT(n){const o=O(),t=o.tareas[n];if(!confirm('¿Eliminar esta tarea?'))return;o.tareas.splice(n,1);log('Tarea eliminada',`${o.folio}: ${t.t}`);render()}
+
 function addFoto(){
   const o=O();
-  form('Agregar fotografía',[{n:'i',l:'Foto',t:'file'},{n:'e',l:'Etapa',o:['Antes','Durante','Después'].map(x=>[x,x])},{n:'d',l:'Descripción',r:false}],r=>{
+  if(db.cfg.cid&&!gon()&&!confirm('Google Drive no está conectado.\n\nAceptar: guardar la foto solo en este navegador por ahora.\nCancelar: conectar Google Drive primero.'))return gconn();
+  form('Agregar fotografía',[{n:'i',l:'Foto',t:'file'},{n:'e',l:'Etapa',o:['Antes','Durante','Después'].map(x=>[x,x])},{n:'d',l:'Descripción (qué se le hizo o se le va a hacer)',r:false}],r=>{
     if(!r.i||!r.i.size){alert('Elige una imagen.');return false}
-    img(r.i,900,'image/jpeg',.6).then(s=>{
-      o.fotos.push({id:uid(),e:r.e,d:r.d,u:me.user,f:new Date().toISOString(),s});
-      if(!save()){o.fotos.pop();return}
-      log('Foto agregada',`${o.folio}: ${r.e}`);render();
-    }).catch(()=>alert('No se pudo leer la imagen.'));
+    const via=gon();toast(via?'Subiendo foto a Google Drive…':'Guardando foto…');
+    (async()=>{
+      try{
+        const ft={id:uid(),e:r.e,d:r.d,u:me.user,f:new Date().toISOString()};
+        if(via){
+          const full=await img(r.i,1600,'image/jpeg',.82);
+          ft.s=await img(r.i,320,'image/jpeg',.6);
+          const par=await ofolder(o);
+          const g=await gup(await(await fetch(full)).blob(),`${o.folio}_${r.e}_${day(ft.f)}_${ft.id}.jpg`,par);
+          ft.i=g.id;ft.w=g.webViewLink;
+        }else ft.s=await img(r.i,900,'image/jpeg',.6);
+        o.fotos.push(ft);
+        if(!save()){o.fotos.pop();toast('');return}
+        log('Foto agregada',`${o.folio}: ${r.e}${ft.i?' (Drive)':''}`);toast(ft.i?'Foto guardada en Google Drive':'Foto guardada',2500);render();
+      }catch(e){
+        toast('');
+        if(String(e.message).includes('404')){delete db.cfg.df;delete o.df;save()}
+        alert(e.message=='auth'?'La sesión de Google venció. Conecta Google Drive de nuevo e inténtalo otra vez.':'No se pudo guardar la foto ('+e.message+'). Si usas Drive, vuelve a conectarlo e inténtalo de nuevo.');
+        render();
+      }
+    })();
   });
 }
 function verFoto(n){
   const f=O().fotos[n];
   dlg.style.width='min(640px,94vw)';
-  dlg.innerHTML=`<img src="${f.s}" alt="" style="width:100%;border-radius:10px"><p><b>${f.e}</b> · ${esc(f.d)}<br><span class="m">${esc(f.u)} · ${fd(f.f)}</span></p><div class="row"><button class="btn sec" onclick="dlg.close()">Cerrar</button>${can('a')?`<button class="btn red" onclick="delFoto(${n})">Eliminar</button>`:''}</div>`;
+  dlg.innerHTML=`<img id="fi" src="${f.s}" alt="" style="width:100%;border-radius:10px"><p><b>${f.e}</b> · ${esc(f.d)}<br><span class="m">${esc(f.u)} · ${fd(f.f)}</span></p><div class="row"><button class="btn sec" onclick="dlg.close()">Cerrar</button>${f.w?`<a class="btn sec" href="${esc(f.w)}" target="_blank" rel="noopener">Abrir en Drive</a>`:''}${can('t')?`<button class="btn red" onclick="delFoto(${n})">Eliminar</button>`:''}</div>`;
   dlg.showModal();
+  if(f.i&&gon())gapi(`https://www.googleapis.com/drive/v3/files/${f.i}?alt=media`).then(r=>r.blob()).then(b=>{const e=document.getElementById('fi');if(e)e.src=URL.createObjectURL(b)}).catch(()=>{});
 }
-function delFoto(n){if(!confirm('¿Eliminar esta fotografía?'))return;const o=O(),f=o.fotos.splice(n,1)[0];log('Foto eliminada',`${o.folio}: ${f.e}`);dlg.close();render()}
+async function delFoto(n){
+  const o=O(),f=o.fotos[n];
+  if(!confirm('¿Eliminar esta fotografía?'+(f.i?' También se borrará de Google Drive.':'')))return;
+  if(f.i){const ok=await gdel(f.i);if(!ok&&!confirm('No se pudo borrar de Google Drive (¿no está conectado?). ¿Quitarla solo del sistema? Seguirá en tu Drive.'))return}
+  o.fotos.splice(n,1);log('Foto eliminada',`${o.folio}: ${f.e}`);dlg.close();render();
+}
+async function limpiaFotos(){
+  const o=O();if(!o.fotos.length)return;
+  if(!confirm(`¿Borrar las ${o.fotos.length} fotos de ${o.folio}? También se eliminarán de Google Drive.`))return;
+  if(o.fotos.some(f=>f.i)){const ok=o.df?await gdel(o.df):false;if(!ok&&!confirm('No se pudieron borrar de Google Drive (¿no está conectado?). ¿Quitarlas solo del sistema? Seguirán en tu Drive.'))return}
+  const n=o.fotos.length;o.fotos=[];delete o.df;log('Fotos borradas',`${o.folio}: ${n} foto(s)`);render();
+}
 
 function setSt(v){
   const o=O();
@@ -386,8 +510,9 @@ function cancelO(){
 
 const wa=(tel,txt)=>{const d=String(tel||'').replace(/\D/g,'');if(d.length<10)return alert('El cliente no tiene un teléfono válido registrado.');window.open(`https://wa.me/${d.length==10?'52'+d:d}?text=${encodeURIComponent(txt)}`,'_blank')};
 function waOrd(){
-  const o=O(),c=C(o.cid),v=Vh(o.vid);
+  const o=O(),c=C(o.cid),v=Vh(o.vid),th=o.tareas.filter(x=>x.s=='h').length;
   let t=`Hola ${c.n}, le escribe ${db.cfg.n}.\nSu vehículo ${v.m} ${v.mo} (placas ${v.pl}), folio ${o.folio}, está en estado: ${o.estado}.`;
+  if(o.tareas.length)t+=`\nAvance: ${th} de ${o.tareas.length} tareas hechas.`;
   if(can('p'))t+=`\nTotal: ${$(tot(o))} · Pagado: ${$(pd(o))} · Saldo: ${$(sal(o))}.`;
   wa(c.t,t+(db.cfg.f?'\n'+db.cfg.f:''));
 }
@@ -429,8 +554,10 @@ function cpw(u){
 function togU(u){const x=db.users.find(a=>a.user==u);if(!x)return;x.on=x.on===false;log(x.on===false?'Usuario desactivado':'Usuario activado',u);render()}
 function editCfg(){
   const c=db.cfg;
-  form('Datos del taller',[{n:'n',l:'Nombre del taller',v:c.n},{n:'a',l:'Dirección',r:false,v:c.a},{n:'t',l:'Teléfono',r:false,v:c.t},{n:'f',l:'Mensaje al pie del ticket',r:false,v:c.f},{n:'l',l:'Logotipo (opcional)',t:'file',r:false}],r=>{
-    Object.assign(c,{n:r.n,a:r.a,t:r.t,f:r.f});
+  form('Datos del taller',[{n:'n',l:'Nombre del taller',v:c.n},{n:'a',l:'Dirección',r:false,v:c.a},{n:'t',l:'Teléfono',r:false,v:c.t},{n:'f',l:'Mensaje al pie del ticket',r:false,v:c.f},{n:'cid',l:'Google Client ID (para guardar fotos en Drive)',r:false,v:c.cid},{n:'l',l:'Logotipo (opcional)',t:'file',r:false}],r=>{
+    const nid=(r.cid||'').trim();
+    if(nid!=(c.cid||'')){gt=null;delete c.df}
+    Object.assign(c,{n:r.n,a:r.a,t:r.t,f:r.f,cid:nid});
     const fin=()=>{log('Configuración actualizada','');document.title=c.n;render()};
     if(r.l&&r.l.size)img(r.l,240,'image/png').then(s=>{c.l=s;fin()}).catch(()=>{alert('No se pudo leer el logotipo.');fin()});else fin();
   });
